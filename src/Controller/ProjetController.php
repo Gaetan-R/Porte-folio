@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/projet", name="projet_")
@@ -26,7 +27,8 @@ class ProjetController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/admin/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -59,7 +61,8 @@ class ProjetController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/admin/{id}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Projet $projet): Response
     {
@@ -79,7 +82,8 @@ class ProjetController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/admin/{id}", name="delete", methods={"DELETE"})
      */
     public function delete(Request $request, Projet $projet): Response
     {
