@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -33,6 +35,16 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Projet::class, mappedBy="owner", orphanRemoval=true)
+     */
+    private $projets;
+
+    public function __construct()
+    {
+        $this->projets = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -108,5 +120,35 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection|Projet[]
+     */
+    public function getProjets(): Collection
+    {
+        return $this->projets;
+    }
+
+    public function addProjet(Projet $projet): self
+    {
+        if (!$this->projets->contains($projet)) {
+            $this->projets[] = $projet;
+            $projet->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProjet(Projet $projet): self
+    {
+        if ($this->projets->removeElement($projet)) {
+            // set the owning side to null (unless already changed)
+            if ($projet->getOwner() === $this) {
+                $projet->setOwner(null);
+            }
+        }
+
+        return $this;
     }
 }

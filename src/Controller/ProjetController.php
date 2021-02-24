@@ -37,6 +37,7 @@ class ProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $projet->setOwner($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($projet);
             $entityManager->flush();
@@ -60,6 +61,9 @@ class ProjetController extends AbstractController
         ]);
     }
 
+
+
+
     /**
      * @IsGranted("ROLE_ADMIN")
      * @Route("/admin/{id}/edit", name="edit", methods={"GET","POST"})
@@ -70,6 +74,7 @@ class ProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $projet->setOwner($this->getUser());
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('projet_index');
@@ -88,6 +93,7 @@ class ProjetController extends AbstractController
     public function delete(Request $request, Projet $projet): Response
     {
         if ($this->isCsrfTokenValid('delete'.$projet->getId(), $request->request->get('_token'))) {
+            $projet->setOwner($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($projet);
             $entityManager->flush();

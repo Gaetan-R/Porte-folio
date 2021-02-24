@@ -37,6 +37,12 @@ class Projet
      */
     private $poster;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="projets")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $owner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +92,18 @@ class Projet
     public function setPoster(string $poster): self
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
