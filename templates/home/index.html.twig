@@ -3,18 +3,31 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <!-- Home Section -->
+    <section id="home">
+        <div class="home-container">
+            <div class="text-effect">
+                <h1>Gaëtan Richer<span></span></h1>
+                <h1>Développeur Web<span></span></h1>
+                <h1>Back-end<span></span></h1>
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <div class="home-button">
+                <section id="link">
+                        <div class="social-icon-home">
+                            <div class="social-item-home">
+                                <a href="#"><img src="https://img.icons8.com/nolan/64/linkedin.png"/></a>
+                            </div>
+                            <div class="social-item-home">
+                                <a href="#"><img src="https://img.icons8.com/nolan/64/github.png"/></a>
+                            </div>
+                        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/gaetan/Documents/Porte-folio/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/gaetan/Documents/Porte-folio/templates/home/My_account.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+                </section>
+
+                <a href="{{ path('projet_index') }}" type="button" class="cta">Portfolio</a>
+            </div>
+        </div>
+    </section>
+    <!-- End Home Section -->
 {% endblock %}

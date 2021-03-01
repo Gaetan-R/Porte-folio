@@ -15,9 +15,7 @@ p{
 
 
 /* Services Section */
-#services{
 
-}
 #services .services {
   flex-direction: column;
   text-align: center;
@@ -35,6 +33,31 @@ p{
   text-align: center;
 }
 #services .section-title span{
+  color: crimson;
+}
+
+.cta{
+  display: inline-block;
+  padding: 10px 30px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid $color-5;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-top: 36px;
+  transition: .3s ease;
+  transition-property: background-color, color;
+}
+.cta:hover{
+  color: white;
+  background: linear-gradient(to bottom right, #176fa6 0%, #8911d9 100%);}
+.brand h1{
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: white;
+}
+.brand h1 span{
   color: crimson;
 }
 
@@ -83,4 +106,5 @@ p{
   color: dodgerblue;
   text-align: left;
 }
+
 /* End Services Section */
