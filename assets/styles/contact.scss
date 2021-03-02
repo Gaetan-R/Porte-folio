@@ -1,5 +1,8 @@
 /* Contact Section */
 
+#contact span{
+  color: $color-1;
+}
 #contact .contact{
   flex-direction: column;
   max-width: 1200px;
