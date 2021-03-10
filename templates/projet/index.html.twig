@@ -4,18 +4,19 @@
 
 {% block title %}Liste des projets{% endblock %}
 
-{% block body %}
-
-
-    <section>
-
+    {% block body %}
+{% include'_header.html.twig' %}
     {% for projets in projets %}
 
         <div class="container">
             <div class="content">
                 <div class="grid">
                     <figure class="effect-bubba">
-                        <img src="{{projets.poster}}" alt="{{ projets.nom }} poster">
+                        {% if (projets.filename) %}
+                            <img class="align-self-start mr-3" src="{{ vich_uploader_asset(projets,'imageFile') }}" alt="{{ projets.nom }} poster">
+                        {% else %}
+                            <img class="align-self-start mr-3" src="{{ projets.poster }}" alt="{{ projets.nom }} poster">
+                        {% endif %}
                         <figcaption>
                             <h2>Projet <span>{{ projets.nom }}</span></h2>
                             <p>{{ projets.description }}</p>
@@ -27,7 +28,7 @@
         </div>
 
     {% endfor %}
-    </section>
+
 
 
 
