@@ -12,6 +12,27 @@ import './styles/app.scss';
 import './bootstrap';
 
 
+const header = document.querySelector
+('.main-header');
+
+window.addEventListener('scroll',() => {
+    const scrollPos = window.scrollY;
+    if(scrollPos > 10) {
+        header.classList.add('scrolled');
+    } else{
+        header.classList.remove('scrolled');
+    }
+})
+
+
+
+
+
+
+
+
+
+/*
 const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
 const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
 const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
@@ -37,3 +58,5 @@ menu_item.forEach((item) => {
      mobile_menu.classList.toggle('active');
   });
 });
+
+*/

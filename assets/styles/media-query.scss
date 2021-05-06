@@ -1,124 +1,262 @@
+/* Media Query for Mobile */
+
+@media only screen and (min-width:480px){
+
+}
+/* End Media Query for Mobile */
+
+
+
+
+
 /* Media Query for Tablet */
-@media only screen and (min-width:768px){
-  .cta{
-    font-size: 2.5rem;
-    padding: 20px 60px;
-  }
-  h1.section-title {
-    font-size: 6rem;
-  }
-  /* Home */
-  #home h1{
-    font-size: 7rem;
-  }
-  /* End Home */
+@media only screen and (max-width:767px) {
 
-  /* Services Section */
-  #services .service-bottom .service-item{
-    flex-basis: 45%;
-    margin: 2.5%;
-  }
-  /* End Services Section */
-  /* Project */
+  .main-header {
+    .menu-icon {
+      display: block;
 
-  /* About */
-  #about .about {
-    flex-direction: row;
-    margin-top: 15rem;
-  }
-  #about .col-left{
-    width: 600px;
-    height: 400px;
-    padding-left: 60px;
-  }
-  #about .about.col-left::after{
-    left: -45px;
-    top: 34px;
-    height: 98%;
-    width: 98%;
-    border: 10px solid crimson;
-  }
-  #about .col-right {
-   text-align: left;
-    padding: 30px;
-  }
-  #about .col-right h1 {
-    text-align: left;
-  }
-  /* End About */
+      &__line {
+        animation: closeMid 08s backwards;
+        animation-direction: reverse;
 
-  /* Contact */
-  #contact .contact {
-    display: flex;
-    flex-direction: column;
-    padding: 100px 0;
-    align-items: center;
-    justify-content: center;
-    min-width: 20vh;
+        &::before {
+          animation: closeTop 0.8s backwards;
+          animation-direction: reverse;
+        }
+
+        &::after {
+          animation: closeBtm 0.8s backwards;
+          animation-direction: reverse;
+        }
+      }
+
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 10rem;
+      width: 100vw;
+      height: 200vw;
+      font-size: 2rem;
+      color: #fff;
+      background: black;
+      // background: #272727;
+      transition: opacity .8s .5s,
+      clip-path 1s .5s;
+      clip-path: circle(200px at top right);
+
+      .nav-link {
+        opacity: 0;
+        transform: translateX(100%);
+        width: 100%;
+        text-align: center;
+
+        a {
+          display: block;
+          padding: 2rem 0;
+        }
+      }
+    }
+
+
+    .menu-btn:checked ~ .nav-links {
+      opacity: 1;
+      clip-path: circle(100% at center);
+
+      .nav-link {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity .4s ease-in-out,
+        transform .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:nth-of-type(1) {
+          transition-delay: .7s;
+        }
+
+        &:nth-of-type(2) {
+          transition-delay: .8s;
+        }
+
+        &:nth-of-type(3) {
+          transition-delay: .9s;
+        }
+
+        &:nth-of-type(4) {
+          transition-delay: .1s;
+        }
+      }
+    }
+
+    .menu-btn:checked ~ .menu-icon {
+      border-radius: 50%;
+      animation: pulse 1s;
+
+      .menu-icon__line {
+        background: #fff;
+        animation: opendMid 0.8s forwards;
+
+        &::before {
+          background: #fff;
+          animation: opendTop 0.8s forwards;
+        }
+
+        &::after {
+          background: #fff;
+          animation: opendBtm 0.8s forwards;
+        }
+      }
+    }
   }
+}
+@media only screen and (min-width:768px) {
+
+
+  .home-port-folio {
+    justify-content: end;
+  }
+
+  .text {
+    // display: flex;
+    margin-left: 135px;
+  }
+
+  .text-effet {
+    margin-bottom: 90px;
+  }
+
+  #link .social-icon-home {
+    margin-top: 8rem;
+    margin-bottom: -3rem;
+  }
+
+  .button {
+    margin-top: 0;
+  }
+
+  #home h1 {
+    line-height: inherit;
+    font-size: 4.5rem;
+  }
+
+  .card-deck {
+    padding: 50px;
+  }
+
+  .col-md-7 {
+    margin-top: -100px;
+  }
+
+  .img-link {
+    width: 12%;
+  }
+
+  .about--img {
+    height: 40vh;
+  }
+
+  .about {
+    margin-left: 37px;
+  }
+
   #contact .contact-items {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    margin: 0;
-    width: 100%;
+    width: 60rem;
+    display: -webkit-inline-flex;
+    margin-left: 60px;
   }
-  #contact .contact-item {
-    margin: 20px;
-    flex-direction: row;
+}
+
+@media only screen and (min-width:1024px) {
+
+ .main-header {
+   font-size: 1.4rem;
+ }
+
+  .logo {
+    font-size: 3rem;
   }
-  #contact .contact-item .icon {
-    height: 100px;
-    width: 100px;
+
+  .text {
+    margin-left: 26rem;
   }
-  #contact .contact-item .icon img {
-    object-fit: contain;
+
+  .main-header .nav-links {
+
   }
-  #contact .contact-item .contact-info {
-    width: 100%;
-    text-align: left;
-    padding-left: 20px;
+
+  .about {
+    margin-left: 50px;
   }
-    /* End Contact */
+
+  #contact .contact-items {
+    margin-left: 180px;
+  }
 }
 /* End Media Query for Tablet */
 
+
+
+
 /* Media Query for Desktop */
-@media only screen and (min-width: 1200px) {
-  /* header */
-  #header .hamburger {
-    display: none;
-  }
-  #header .nav-list ul {
-    position: initial;
-    display: block;
-    height: auto;
-    width: fit-content;
-    background-color: transparent;
-    margin-left: 90rem;
-  }
-#header .nav-list ul li {
-  display: inline-block;
-}
-  #header .nav-list ul li a {
-font-size: 1.8rem;
-  }
-    #header .nav-list ul a:after{
-    display: none;
-  }
-  /* End header */
+@media only screen and (min-width: 1025px) {
 
-  /* Footer */
-  #footer .container {
-    max-width: 350px;
+  .text {
+    display: flex;
+    margin-left: 0;
   }
-  /* End Footer */
 
-  #services .service-bottom .service-item {
-    flex-basis: 22%;
-    margin: 1.5%;
+  .text-effect {
+    margin-left: 220px;
+   // margin-top: 65px;
   }
+
+  #link .social-item-home img {
+    filter: grayscale(1);
+  }
+
+  #home h1 {
+    font-size: 8rem;
+  }
+
+  .home-img {
+    width: 8rem;
+  }
+
+  #link .social-item-home {
+    width: 80px;
+  }
+
+  .cta {
+    font-size: 3rem;
+  }
+
+  .logo {
+    margin-left: -7rem;
+  }
+
+  .nav-links {
+    font-size: 1.5rem;
+  }
+
+  .project {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card-deck {
+    width: 30%;
+    margin: auto;
+  }
+
 }
+
+
 /* Media Query for Desktop */
 
 

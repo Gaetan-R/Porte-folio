@@ -52,7 +52,7 @@ class Projet
     private $lien;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $poster;
 
@@ -95,16 +95,6 @@ class Projet
      * @ORM\Column(type="string", length=255)
      */
     private $technologie;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $plateforme;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $auteur;
 
     /**
      * @ORM\Column(type="datetime")
@@ -295,29 +285,6 @@ class Projet
         return $this;
     }
 
-    public function getPlateforme(): ?string
-    {
-        return $this->plateforme;
-    }
-
-    public function setPlateforme(string $plateforme): self
-    {
-        $this->plateforme = $plateforme;
-
-        return $this;
-    }
-
-    public function getAuteur(): ?string
-    {
-        return $this->auteur;
-    }
-
-    public function setAuteur(string $auteur): self
-    {
-        $this->auteur = $auteur;
-
-        return $this;
-    }
 
     public function getCreation(): ?\DateTimeInterface
     {

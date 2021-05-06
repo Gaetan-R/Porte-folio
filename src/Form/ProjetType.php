@@ -24,8 +24,6 @@ class ProjetType extends AbstractType
             ->add('creation', DateTimeType::class)
             ->add('summary', TextareaType::class)
             ->add('technologie',TextType::class)
-            ->add('plateforme',TextType::class)
-            ->add('auteur',TextType::class)
             ->add('video',UrlType::class)
             ->add('linkVideo', UrlType::class)
             ->add('lien',UrlType::class)

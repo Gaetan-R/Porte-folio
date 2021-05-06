@@ -58,7 +58,9 @@ class ProjetController extends AbstractController
     {
         return $this->render('projet/show.html.twig', [
             'projet' => $projet,
+
         ]);
+
     }
 
     

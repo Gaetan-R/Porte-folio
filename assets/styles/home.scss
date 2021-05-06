@@ -14,20 +14,18 @@ html{
 a{
   text-decoration: none;
 }
-.home-container{
+.home-port-folio{
   min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-end;
 }
 
 .text-effect{
-  margin-left: 15rem;
-}
-.home-button{
-  margin-left: 10rem;
-  margin-top: 4rem;
+  margin-left: 50px;
+  text-align: -webkit-center;
+  margin-right: 50px;
 }
 
 /*Home Section */
@@ -93,6 +91,24 @@ a{
   animation-delay: 2.5s;
 }
 
+.cta {
+  display: inline-block;
+  padding: 10px 30px;
+  color: #fff;
+  //background-color: transparent;
+  background: linear-gradient(to bottom right,#176fa6 0,#8911d9);
+  border: 2px solid #176fa6;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-top: 100px;
+  transition: .3s ease;
+  transition-property: background-color, color;
+}
+.cta:hover {
+  color: #fff;
+  background: linear-gradient(to bottom right,#176fa6 0,#8911d9);
+}
 /*End Home Section*/
 
 /* Link Home */
@@ -114,6 +130,7 @@ a{
 #link .social-icon-home{
   display: flex;
   justify-content: center;
+  margin-top: 4rem;
 }
 #link .social-item-home{
   height: 60px;
@@ -121,7 +138,7 @@ a{
   margin: 0 5px;
 }
 #link .social-item-home img {
-  filter: grayscale(1);
+ // filter: grayscale(1);
   transition: .3s ease filter;
 }
 #link .social-item-home:hover img{
@@ -130,6 +147,16 @@ a{
 #link p {
   color: white;
   font-size: 1.3rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: -6rem;
+}
+
+.text {
+  margin-top: 10rem;
 }
 /* End Link Home */
 

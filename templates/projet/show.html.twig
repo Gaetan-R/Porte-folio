@@ -3,46 +3,35 @@
 {% block title %}Projet{% endblock %}
 
 {% block body %}
+    {% include'_header.html.twig' %}
 
-    <section>
-        <div class="row">
-        <div class="img-container">
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
             {% if (projet.filename) %}
-                <img class="align-self-start mr-3" src="{{ vich_uploader_asset(projet,'imageFile') }}" alt="{{ projet.nom }} poster">
+                <img class="align-self-start mr-3 shadow mb-5 bg-white rounded" src="{{ vich_uploader_asset(projet,'imageFile') }}" alt="{{ projet.nom }} poster">
             {% else %}
-                <img class="align-self-start mr-3" src="{{ projet.poster }}" alt="{{ projet.nom }} poster">
+                <img class="img-project shadow mb-5 bg-white rounded" src="{{ projet.poster }}" alt="{{ projet.nom }} poster">
             {% endif %}
+            <iframe class="video" src="{{ projet.video }}" width="118%" height="366" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p class="link-video"><a href="{{ projet.linkVideo }}">Lien vers la video</a> </p>
 
         </div>
-
-            <div class="container">
-                <iframe src="{{ projet.video }}" width="640" height="366" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                <p><a href="{{ projet.linkVideo }}">Lien vers la video</a> </p>
-                <h1>Projet <span>{{ projet.nom }}</span></h1>
-                <p>{{ projet.summary }}</p>
-                <p>Date de création : {{projet.creation|date('d/m/Y')}}</p>
-                <a href="#"><img src="https://img.icons8.com/clouds/100/000000/github.png"/></a>
+        <div class="col-md-7">
+            <div class="sum-container shadow mb-5 bg-white rounded">
+            <h1 class="project-title"><span>{{ projet.nom }}</span></h1>
+            <p class="project-sum">{{ projet.summary }}</p>
+                <p class="project-sum-techno">Languages/Frameworks : {{ projet.technologie }}</p>
+                <p class="project-date">Date de création : {{projet.creation|date('d/m/Y')}}</p>
+                <div class="project-item">
+            <a class="project-icon" href="#"><img src="https://img.icons8.com/clouds/100/000000/github.png"/></a>
+            <a class="project-icon" href="#"><img src="https://img.icons8.com/clouds/100/000000/web-imac.png"/></a>
             </div>
         </div>
+        </div>
 
-    </section>
-
-
-    <section>
-            <div class="container">
-                <div class="content">
-                    <div class="grid">
-                        <figure class="effect-bubba">
-                            <img src="{{projet.poster}}" alt="{{ projet.nom }} poster">
-                            <figcaption>
-                                <h2>Projet <span>{{ projet.nom }}</span></h2>
-                                <p>{{ projet.description }}</p>
-                                <a class="buy" href="{{ path('projet_show', {id : projet.id }) }}">Voir</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-    </section>
+</div>
+</div>
+    {% include '_footer.html.twig' %}
 
 {% endblock %}

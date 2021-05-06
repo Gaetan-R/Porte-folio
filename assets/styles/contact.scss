@@ -10,6 +10,7 @@
 }
 #contact .contact-items{
   width: 400px;
+  display: contents;
 
 }
 #contact .contact-item{
@@ -44,7 +45,74 @@ font-size: 1.3rem;
   font-weight: 500;
 }
 
-
-
 /* End Contact Section */
 
+.about--img {
+  background-image: url("/assets/images/19362653.jpg");
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  height: 30vh;
+  width: 90%;
+}
+
+.col-left {
+  display: flex;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cta-download {
+  display: inline-block;
+  padding: 10px 30px;
+  color: #fff;
+  //background-color: transparent;
+  background: linear-gradient(to bottom right,#176fa6 0,#8911d9);
+  border: 2px solid #176fa6;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  transition: .3s ease;
+  transition-property: background-color, color;
+}
+.cta-download:hover {
+  color: #fff;
+  background: linear-gradient(to bottom right,#176fa6 0,#8911d9);
+}
+
+.contact-sum {
+  text-align: center;
+  font-size: initial;
+  line-height: 3rem;
+  padding: 10px;
+  margin-top: 2rem;
+}
+
+.about-contact {
+  display: flex;
+  justify-content: center;
+}
+
+.about {
+  width: 90%;
+  margin-left: 21px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.container, .home-container {
+  min-height: 10vh;
+  margin-top: 0;
+}
+
+#about h1 span {
+  color: $color-1;
+
+}

@@ -6,32 +6,35 @@
 
     {% block body %}
 {% include'_header.html.twig' %}
-    {% for projets in projets %}
+        <h1 class="section-title-project"><u><span>P</span>rojets</u></h1>
 
-        <div class="container">
-            <div class="content">
-                <div class="grid">
-                    <figure class="effect-bubba">
-                        {% if (projets.filename) %}
-                            <img class="align-self-start mr-3" src="{{ vich_uploader_asset(projets,'imageFile') }}" alt="{{ projets.nom }} poster">
-                        {% else %}
-                            <img class="align-self-start mr-3" src="{{ projets.poster }}" alt="{{ projets.nom }} poster">
-                        {% endif %}
-                        <figcaption>
-                            <h2>Projet <span>{{ projets.nom }}</span></h2>
-                            <p>{{ projets.description }}</p>
-                            <a class="buy" href="{{ path('projet_show', {id : projets.id }) }}">Voir</a>
-                        </figcaption>
-                    </figure>
+        <section class="project" id="project">
+            {% for projets in projets %}
+
+        <div class="card-deck">
+            <div class="card projet-card shadow mb-5 bg-white rounded">
+                {% if (projets.filename) %}
+                    <a class="buy" href="{{ path('projet_show', {id : projets.id }) }}">
+                        <img class="card-img-top" src="{{ vich_uploader_asset(projets,'imageFile') }}" alt="{{ projets.nom }}"></a>
+    {% else %}
+                <a class="buy" href="{{ path('projet_show', {id : projets.id }) }}">
+                    <img class="card-img-top" src="{{ projets.poster }}" alt="{{ projets.nom }}">
+                </a>
+                {% endif %}
+        <div class="card-projet">
+                    <h5 class="card-title">{{ projets.nom }}</h5>
+                    <p class="card-text">{{ projets.description }}</p>
                 </div>
             </div>
         </div>
 
+
     {% endfor %}
+</section>
+    {% include '_footer.html.twig' %}
 
 
+    {% endblock %}
 
-
-{% endblock %}
 {% endblock %}
 

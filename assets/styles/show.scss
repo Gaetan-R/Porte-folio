@@ -1,3 +1,48 @@
-.img-container {
-  width: 50%;
+.img-project {
+  width: 100%;
+  margin-top: -100px;
 }
+
+.video {
+  width: 100%;
+  margin-top: -90px;
+}
+
+.project-title {
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 20px;
+}
+
+.project-sum {
+  line-height: 3rem;
+  padding: 12px;
+  font-size: initial;
+  text-align: center;
+}
+
+.project-date {
+  text-align: center;
+  font-size: 11px;
+}
+
+
+.link-video {
+  display: flex;
+  justify-content: center;
+  margin-top: -65px;
+  margin-bottom: 40px;
+  font-size: 11px;
+}
+
+.project-item {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.project-sum-techno {
+  text-align: center;
+  font-size: 11px;
+}
+
